@@ -1,0 +1,10 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "visual_qa",
+  "limit": 300,
+  "shuffle_seed": 42,
+  "task_params": {
+    "qa_pairs_dir": "runs/vlm_assets/visual_qa",
+    "max_frames_per_example": 6
+  }
+}

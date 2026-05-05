@@ -1,0 +1,32 @@
+{
+  "dataset_root": "/data/barista",
+  "output_dir": "runs/vlm",
+  "model": {
+    "provider": "azure_openai",
+    "model": "gpt-5.4-mini",
+    "base_url": "https://YOUR_AZURE_ENDPOINT.openai.azure.com/",
+    "api_key_env": "OPENAI_API_KEY",
+    "api_version": "2024-12-01-preview",
+    "temperature": 0.7,
+    "max_output_tokens": 4096,
+    "thinking_level": "low"
+  },
+  "task": "visual_qa",
+  "concurrency": 8,
+  "task_params": {
+    "qa_pairs_dir": "runs/vlm_assets/visual_qa",
+    "judge_model": {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": null,
+        "vertexai": true,
+        "project": "YOUR_GCP_PROJECT",
+        "location": "europe-west4",
+        "temperature": 0.7,
+        "max_output_tokens": 4096
+    },
+    "geval_criteria": ["accuracy", "completeness"],
+    "geval_strict_mode": false,
+    "geval_verbose": false
+  }
+}

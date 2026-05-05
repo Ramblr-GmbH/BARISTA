@@ -1,0 +1,18 @@
+{
+  "dataset_root": "/data/barista",
+  "output_dir": "runs/vlm",
+  "model": {
+    "provider": "openai_compat",
+    "model": "gemma-4-31b-it",
+    "base_url": "http://localhost:8000/v1",
+    "api_key_env": null,
+    "temperature": 0.7,
+    "max_output_tokens": 4096
+  },
+  "task": "grounding",
+  "concurrency": 1,
+  "task_params": {
+    "bbox_scale": 1000,
+    "bbox_format": "yxyx"
+  }
+}

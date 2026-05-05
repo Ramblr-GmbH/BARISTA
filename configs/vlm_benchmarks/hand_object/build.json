@@ -1,0 +1,11 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "hand_object",
+  "limit": 1000,
+  "shuffle_seed": 42,
+  "task_params": {
+    "bbox_scale": 1000,
+    "interaction_relation_type": "human_actions",
+    "sample_fraction": 1.0
+  }
+}

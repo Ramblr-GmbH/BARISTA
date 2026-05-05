@@ -1,0 +1,33 @@
+{
+  "dataset_root": "/data/barista",
+  "output_dir": "runs/vlm",
+  "model": {
+    "provider": "gemini",
+    "model": "gemini-3-flash-preview",
+    "api_key_env": null,
+    "vertexai": true,
+    "project": "YOUR_GCP_PROJECT",
+    "location": "global",
+    "temperature": 0.7,
+    "max_output_tokens": 4096,
+    "thinking_level": "low"
+  },
+  "task": "visual_qa",
+  "concurrency": 8,
+  "task_params": {
+    "qa_pairs_dir": "runs/vlm_assets/visual_qa",
+    "judge_model": {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": null,
+        "vertexai": true,
+        "project": "YOUR_GCP_PROJECT",
+        "location": "europe-west4",
+        "temperature": 0.7,
+        "max_output_tokens": 4096
+    },
+    "geval_criteria": ["accuracy", "completeness"],
+    "geval_strict_mode": false,
+    "geval_verbose": false
+  }
+}

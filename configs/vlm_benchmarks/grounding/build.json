@@ -1,0 +1,13 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "grounding",
+  "limit": 1000,
+  "shuffle_seed": 42,
+  "task_params": {
+    "min_bbox_area": 100,
+    "sample_fraction": 0.1,
+    "bbox_scale": 1000,
+    "activity_filter": true,
+    "require_relations": true
+  }
+}

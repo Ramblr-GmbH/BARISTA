@@ -1,0 +1,12 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "activity_mcq",
+  "limit": 500,
+  "shuffle_seed": 42,
+  "task_params": {
+    "frames_per_example": 4,
+    "num_choices": 25,
+    "max_per_class": 20,
+    "min_same_verb_distractors": 4
+  }
+}

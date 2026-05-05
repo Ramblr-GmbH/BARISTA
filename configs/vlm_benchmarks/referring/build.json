@@ -1,0 +1,12 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "referring",
+  "shuffle_seed": 42,
+  "limit": 1000,
+  "task_params": {
+    "max_objects_per_frame": 10,
+    "max_objects_per_category": 50,
+    "frame_step": 60,
+    "activity_filter": true
+  }
+}

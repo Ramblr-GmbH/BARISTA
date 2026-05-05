@@ -1,0 +1,19 @@
+name: careego
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=2.0.0
+  - torchvision
+  - pytorch-cuda=11.8
+  - pip
+  - setuptools
+  - pip:
+      - torchmetrics
+      - numpy
+      - pillow
+      - tqdm
+      - openmim

@@ -1,0 +1,12 @@
+{
+  "dataset_root": "/data/barista",
+  "task": "relation_extraction",
+  "limit": 1000,
+  "shuffle_seed": 42,
+  "task_params": {
+    "frame_step": 300,
+    "mask_alpha": 0.5,
+    "alpha_segmentation_boundary": 0.9,
+    "font_size": 20
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "dataset_root": "/data/barista",
+  "output_dir": "runs/vlm",
+  "model": {
+    "provider": "gemini",
+    "model": "gemini-3-flash-preview",
+    "api_key_env": null,
+    "vertexai": true,
+    "project": "YOUR_GCP_PROJECT",
+    "location": "global",
+    "temperature": 0.7,
+    "max_output_tokens": 4096,
+    "thinking_level": "low"
+  },
+  "task": "hand_object",
+  "concurrency": 8,
+  "task_params": {
+    "bbox_scale": 1000,
+    "bbox_format": "yxyx"
+  }
+}

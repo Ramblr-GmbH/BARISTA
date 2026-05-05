@@ -1,0 +1,20 @@
+{
+  "dataset_root": "/data/barista",
+  "output_dir": "runs/vlm",
+  "model": {
+    "provider": "azure_openai",
+    "model": "gpt-5.4-mini",
+    "base_url": "https://YOUR_AZURE_ENDPOINT.openai.azure.com/",
+    "api_key_env": "OPENAI_API_KEY",
+    "api_version": "2024-12-01-preview",
+    "temperature": 0.7,
+    "max_output_tokens": 4096,
+    "thinking_level": "low"
+  },
+  "task": "grounding",
+  "concurrency": 8,
+  "task_params": {
+    "bbox_scale": 1000,
+    "bbox_format": "yxyx"
+  }
+}

@@ -1,0 +1,55 @@
+[project]
+name = "barista"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "imageio>=2.34",
+  "imageio-ffmpeg>=0.4.9",
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "seaborn>=0.13",
+  "pillow>=10.2",
+  "pycocotools>=2.0.7",
+  "torch==2.10.0",
+  "torchmetrics[detection]==1.8.2",
+  "torchvision==0.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6.0",
+]
+vlm = [
+  "deepeval>=2.0.0",
+  "google-genai>=0.7.0",
+  "openai>=1.40.0",
+  "pydantic>=2.8.0",
+  "transformers>=5.5.0",
+  "vllm>=0.19.1",
+]
+
+[project.scripts]
+barista-summarize = "barista.scripts.summarize_dataset:main"
+barista-visualize = "barista.scripts.visualize_frame:main"
+barista-visualize-segment = "barista.scripts.visualize_segment:main"
+barista-vlm-build-dataset = "barista.scripts.build_vlm_benchmark_dataset:main"
+barista-vlm-prepare = "barista.scripts.prepare_vlm_benchmark_assets:main"
+barista-vlm-run = "barista.scripts.run_vlm_benchmark:main"
+barista-vlm-judge = "barista.scripts.judge_vlm_predictions:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "lf"
