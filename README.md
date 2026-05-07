@@ -76,4 +76,52 @@ For config reference, per-task parameters, and advanced workflows, see [`configs
 - Attributes and relations are stored per-object with `image_ranges`, expanded to per-frame data at load time.
 - Activities are per-segment with `image_range` and a `display_name` label.
 
-The loader exposes: `Video` → `frames` → `objects` (`ObjectAnnotation` with `category`, `bbox`, `mask`, `attributes`), plus `Relation` (per-frame) and `Activity` (frame interval).
+### Annotation structure
+
+`load_videos(root)` returns a list of `Video` objects. Each `Video` exposes:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `video_id` | `str` | Unique identifier for the video |
+| `width`, `height` | `int` | Frame dimensions in pixels |
+| `fps` | `float` | Frames per second |
+| `frames` | `dict[int, FrameAnnotation]` | Per-frame annotations keyed by frame index |
+| `activities` | `list[Activity]` | Activity segments covering frame ranges |
+| `process_steps` | `list[ProcessStep]` | Process-step segments covering frame ranges |
+| `categories` | `dict[str, Category]` | All object categories in this video |
+
+Each `FrameAnnotation` (accessible via `video.frames[i]` or `video.iter_frames()`) contains:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `frame_index` | `int` | 0-based frame index |
+| `width`, `height` | `int` | Frame dimensions |
+| `objects` | `list[ObjectAnnotation]` | Detected/annotated object instances |
+| `relations` | `list[Relation]` | Directed typed relations between objects |
+
+Each `ObjectAnnotation` provides:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `object_id` | `UUID` | Persistent identity across frames |
+| `category` | `Category` | Object class (`name`, `id`) |
+| `bbox` | `list[float]` | Bounding box in COCO `[x, y, w, h]` format |
+| `mask` | `object` | Raw COCO RLE segmentation (`counts` + `size`); decode with `.mask_array(h, w)` |
+| `attributes` | `list[Attribute]` | Key-value attributes (`attribute_type`, `value`) |
+
+Each `Relation` (per-frame) provides:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `source_object_id` | `UUID` | Subject of the relation |
+| `target_object_id` | `UUID` | Object of the relation |
+| `relation_type` | `str` | Relation type label |
+| `value` | `str` | Relation value/qualifier |
+
+Each `Activity` and `ProcessStep` covers a contiguous frame range (`frame_start`, `frame_end`) with a `display_name` string label. `Activity` additionally exposes `verb` and `noun` fields parsed from the display name.
+
+## License
+
+The **code** in this repository is released under the [Apache License 2.0](LICENSE).
+
+The **dataset** (annotations and videos) is released under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/) and is hosted on [Harvard Dataverse](https://dataverse.harvard.edu/previewurl.xhtml?token=0f9c47c0-dc2f-40a5-98cd-ac68e6603afc).
