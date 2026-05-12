@@ -20,6 +20,13 @@ uv run ruff format
 uv run ruff check
 ```
 
+## Dataset access
+
+The BARISTA dataset (annotations and videos) is available from two sources:
+
+- **Hugging Face**: [ramblr/BARISTA](https://huggingface.co/datasets/ramblr/BARISTA)
+- **Harvard Dataverse**: [preview link](https://dataverse.harvard.edu/previewurl.xhtml?token=0f9c47c0-dc2f-40a5-98cd-ac68e6603afc)
+
 ## Dataset layout
 
 ```
@@ -124,4 +131,4 @@ Each `Activity` and `ProcessStep` covers a contiguous frame range (`frame_start`
 
 The **code** in this repository is released under the [Apache License 2.0](LICENSE).
 
-The **dataset** (annotations and videos) is released under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/) and is hosted on [Harvard Dataverse](https://dataverse.harvard.edu/previewurl.xhtml?token=0f9c47c0-dc2f-40a5-98cd-ac68e6603afc).
+The **dataset** (annotations and videos) is released under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/) and is hosted on [Hugging Face](https://huggingface.co/datasets/ramblr/BARISTA) and [Harvard Dataverse](https://dataverse.harvard.edu/previewurl.xhtml?token=0f9c47c0-dc2f-40a5-98cd-ac68e6603afc).
