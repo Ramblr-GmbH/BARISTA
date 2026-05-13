@@ -127,6 +127,20 @@ Each `Relation` (per-frame) provides:
 
 Each `Activity` and `ProcessStep` covers a contiguous frame range (`frame_start`, `frame_end`) with a `display_name` string label. `Activity` additionally exposes `verb` and `noun` fields parsed from the display name.
 
+## Citations
+
+```
+@misc{knab2026barista,
+      title={BARISTA: A Multi-Task Egocentric Benchmark for Compositional Visual Understanding}, 
+      author={Patrick Knab and Orgest Xhelili and Inis Buzi and Drago Andres Guggiana Nilo and Mohd Saquib Khan and Lorenz Kolb and Manuel Scherzer and Kerem Yildirir and Christian Bartelt and Philipp Johannes Schubert},
+      year={2026},
+      eprint={2605.12074},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.12074}, 
+}
+```
+
 ## License
 
 The **code** in this repository is released under the [Apache License 2.0](LICENSE).
